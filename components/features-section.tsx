@@ -2,38 +2,38 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Truck, Shield, Headphones, Clock, CheckCircle2 } from "lucide-react";
+import { Shirt, CarFront, Scissors, Globe, CheckCircle2 } from "lucide-react";
 
 const features = [
   {
-    icon: Truck,
-    title: "Door-to-Door Delivery",
-    description: "We bring your car to you. Pickup and dropoff at your location, anytime, anywhere in Zimbabwe.",
+    icon: Shirt,
+    title: "T-Shirts, Hoodies and Plain Tees",
+    description: "Branded apparel plus plain t-shirts from $2 for teams, events, resale, uniforms, and everyday wear.",
   },
   {
-    icon: Shield,
-    title: "Premium Insurance",
-    description: "All-inclusive coverage for worry-free drives. Drive with confidence knowing you&apos;re fully protected.",
+    icon: CarFront,
+    title: "Caps, Cars and Glass Branding",
+    description: "Brand caps, vehicles, shopfront glass, doors, and windows with clean, durable graphics that stand out.",
   },
   {
-    icon: Headphones,
-    title: "24/7 Concierge",
-    description: "Live support for every journey. Our team is always here to assist with any request.",
+    icon: Scissors,
+    title: "Precision Vinyl Cutting",
+    description: "Sharp-cut decals, lettering, stickers, and signage pieces prepared to fit your surface or project.",
   },
   {
-    icon: Clock,
-    title: "Instant Booking",
-    description: "Reserve in under 2 minutes. Get instant confirmation and hit the road faster.",
+    icon: Globe,
+    title: "Websites and Custom Apps",
+    description: "We also build websites, custom apps, and school project solutions for clients who need digital work too.",
   },
 ];
 
 const benefits = [
-  "No hidden fees",
-  "Flexible cancellation",
-  "Unlimited mileage options",
-  "GPS included",
-  "Child seats available",
-  "Airport pickup/dropoff",
+  "Plain tees from $2",
+  "Caps and promo wear",
+  "Vehicle branding",
+  "Glass decals",
+  "Websites and apps",
+  "School projects too",
 ];
 
 export function FeaturesSection() {
@@ -59,7 +59,6 @@ export function FeaturesSection() {
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-10 md:gap-16 items-center">
-          {/* Left Column - Content */}
           <div>
             <motion.span
               className="inline-block text-xs sm:text-sm uppercase tracking-[0.2em] text-accent mb-3 md:mb-4"
@@ -67,7 +66,7 @@ export function FeaturesSection() {
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6 }}
             >
-              Why Choose Us
+              Why Print Here
             </motion.span>
             <motion.h2
               className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-foreground mb-4 md:mb-6"
@@ -75,7 +74,7 @@ export function FeaturesSection() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              The Luxe Experience
+              Print, Brand and Build
             </motion.h2>
             <motion.p
               className="text-muted-foreground text-base md:text-lg mb-6 md:mb-8"
@@ -83,10 +82,9 @@ export function FeaturesSection() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              {"We don't just rent cars – we deliver exceptional experiences. Every detail is crafted to exceed your expectations."}
+              From single shirts to full storefront branding and digital builds, we keep the process simple and the final result clean, useful, and ready to represent your brand well.
             </motion.p>
 
-            {/* Benefits Grid */}
             <motion.div
               className="grid grid-cols-2 gap-3"
               initial={{ opacity: 0 }}
@@ -107,7 +105,6 @@ export function FeaturesSection() {
               ))}
             </motion.div>
 
-            {/* CTA */}
             <motion.div
               className="mt-10"
               initial={{ opacity: 0, y: 20 }}
@@ -120,12 +117,11 @@ export function FeaturesSection() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Start Your Journey
+                Request a Quote
               </motion.a>
             </motion.div>
           </div>
 
-          {/* Right Column - Feature Cards */}
           <div className="grid grid-cols-2 gap-3 md:gap-4">
             {features.map((feature, index) => (
               <motion.div
@@ -136,7 +132,6 @@ export function FeaturesSection() {
                 transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
                 whileHover={{ y: -5 }}
               >
-                {/* Icon */}
                 <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg md:rounded-xl bg-accent/10 flex items-center justify-center mb-3 md:mb-4 group-hover:bg-accent/20 transition-colors">
                   <feature.icon size={20} className="md:hidden text-accent" />
                   <feature.icon size={24} className="hidden md:block text-accent" />
@@ -149,7 +144,6 @@ export function FeaturesSection() {
                   {feature.description}
                 </p>
 
-                {/* Hover Indicator */}
                 <motion.div
                   className="absolute bottom-0 left-4 right-4 md:left-6 md:right-6 h-0.5 bg-accent rounded-full"
                   initial={{ scaleX: 0 }}
@@ -161,7 +155,6 @@ export function FeaturesSection() {
           </div>
         </div>
 
-        {/* Testimonial */}
         <motion.div
           className="mt-24 text-center"
           initial={{ opacity: 0, y: 30 }}
@@ -170,19 +163,19 @@ export function FeaturesSection() {
         >
           <blockquote className="max-w-3xl mx-auto">
             <p className="text-2xl md:text-3xl font-serif text-foreground mb-6 italic">
-              {`"Luxe Car transformed our Zimbabwe trip. The Fortuner was immaculate, delivery was seamless, and their team went above and beyond."`}
+              {`"We help brands show up properly in print and online, from plain tees and vinyl cutting to custom websites and apps built with care."`}
             </p>
             <footer className="flex items-center justify-center gap-4">
               <img
-                src="/images/Rudo.png"
-                alt="Rudo"
+                src="/images/miko.jpg"
+                alt="Owner portrait"
                 className="w-12 h-12 rounded-full object-cover"
               />
               <div className="text-left">
                 <cite className="not-italic font-medium text-foreground">
-                  Rudo Chakwanda
+                  Mikomborero Kanyoka
                 </cite>
-                <p className="text-sm text-muted-foreground">Travel Blogger</p>
+                <p className="text-sm text-muted-foreground">Owner, Software Engineer</p>
               </div>
             </footer>
           </blockquote>

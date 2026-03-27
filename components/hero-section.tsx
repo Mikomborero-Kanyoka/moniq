@@ -4,7 +4,6 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown, MessageCircle } from "lucide-react";
 
 export function HeroSection() {
-  // Use window scroll for parallax effects
   const { scrollYProgress } = useScroll();
 
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
@@ -16,24 +15,20 @@ export function HeroSection() {
       id="top"
       className="relative isolate min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Background Image */}
       <motion.div className="absolute inset-0 z-0 pointer-events-none" style={{ scale }}>
         <img
-          src="/images/bg-hero.png"
-          alt="Luxury car background"
+          src="/images/hero.png"
+          alt="Printing and branding showcase"
           className="w-full h-full object-cover"
         />
-        {/* Overlay */}
         <div className="absolute inset-0 bg-background/60" />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
       </motion.div>
 
-      {/* Content */}
       <motion.div
         className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 text-center pt-24 md:pt-28"
         style={{ y, opacity }}
       >
-        {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -42,32 +37,29 @@ export function HeroSection() {
         >
           <span className="inline-flex items-center gap-2 px-3 md:px-4 py-1.5 md:py-2 rounded-full border border-border bg-card/50 backdrop-blur-sm text-xs md:text-sm text-muted-foreground">
             <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-accent animate-pulse" />
-            Premium Car Rentals in Zimbabwe
+            Printing and Branding Studio
           </span>
         </motion.div>
 
-        {/* Main Heading */}
         <motion.h1
-          className="mx-auto max-w-5xl text-[clamp(3rem,7vw,5.75rem)] font-sans font-extrabold tracking-[-0.06em] text-balance leading-[0.95] mb-5 md:mb-7"
+          className="mx-auto max-w-5xl text-[clamp(2.4rem,6vw,4.75rem)] font-sans font-extrabold tracking-[-0.06em] text-balance leading-[0.95] mb-5 md:mb-7"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          <span className="block text-foreground">Rent your dream ride.</span>
-          <span className="block text-foreground/35">Luxury cars, delivered fast.</span>
+          <span className="block text-foreground">If You Can Name It,</span>
+          <span className="block text-foreground/35">We Can Brand It</span>
         </motion.h1>
 
-        {/* Subtitle */}
         <motion.p
           className="max-w-2xl mx-auto text-sm md:text-base text-muted-foreground mb-8 md:mb-12 px-4 md:px-0 text-pretty"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          Premium rentals across Zimbabwe with delivery, flexible booking, and 24/7 support.
+          Custom printing, branding, website development, and app builds for businesses, events, startups, and school projects.
         </motion.p>
 
-        {/* CTA Buttons */}
         <motion.div
           className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 px-4 md:px-0"
           initial={{ opacity: 0, y: 30 }}
@@ -80,10 +72,10 @@ export function HeroSection() {
             whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(0,0,0,0.3)" }}
             whileTap={{ scale: 0.95 }}
           >
-            Explore Fleet
+            Explore Services
           </motion.a>
           <motion.a
-            href="https://wa.me/263771234567?text=Hi%2C%20I%27d%20like%20to%20book%20a%20car"
+            href="https://wa.me/263785234975?text=Hi%2C%20I%27d%20like%20a%20quote%20for%20printing%20and%20branding"
             target="_blank"
             rel="noopener noreferrer"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 border border-border rounded-full text-foreground font-medium hover:bg-card/50 transition-all group"
@@ -94,11 +86,10 @@ export function HeroSection() {
               <MessageCircle size={14} className="text-green-500 sm:hidden" />
               <MessageCircle size={16} className="text-green-500 hidden sm:block" />
             </span>
-            Book via WhatsApp
+            Quote on WhatsApp
           </motion.a>
         </motion.div>
 
-        {/* Stats */}
         <motion.div
           className="grid grid-cols-3 gap-4 md:gap-8 mt-12 md:mt-20 max-w-xl mx-auto px-4 md:px-0"
           initial={{ opacity: 0 }}
@@ -106,9 +97,9 @@ export function HeroSection() {
           transition={{ duration: 0.8, delay: 1 }}
         >
           {[
-            { value: "50+", label: "Premium Cars" },
-            { value: "1000+", label: "Happy Clients" },
-            { value: "24/7", label: "Support" },
+            { value: "$2", label: "Plain tees" },
+            { value: "6+", label: "Core services" },
+            { value: "Dev", label: "Web + apps" },
           ].map((stat, index) => (
             <motion.div
               key={stat.label}
@@ -128,7 +119,6 @@ export function HeroSection() {
         </motion.div>
       </motion.div>
 
-      {/* Scroll Indicator */}
       <motion.div
         className="absolute bottom-8 left-1/2 -translate-x-1/2"
         initial={{ opacity: 0 }}
@@ -145,7 +135,6 @@ export function HeroSection() {
         </motion.div>
       </motion.div>
 
-      {/* Side decorative lines */}
       <div className="absolute left-8 top-1/2 -translate-y-1/2 hidden lg:flex flex-col gap-4">
         {[...Array(5)].map((_, i) => (
           <motion.div

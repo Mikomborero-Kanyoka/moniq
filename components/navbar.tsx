@@ -6,7 +6,7 @@ import { Menu, X } from "lucide-react";
 
 const navItems = [
   { label: "Home", href: "#top" },
-  { label: "Fleet", href: "#fleet" },
+  { label: "Services", href: "#fleet" },
   { label: "Why Us", href: "#features" },
   { label: "Contact", href: "#contact" },
 ];
@@ -34,7 +34,6 @@ export function Navbar() {
       >
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="flex h-20 items-center justify-between">
-            {/* Logo */}
             <motion.a
               href="#top"
               className="flex flex-col"
@@ -42,14 +41,13 @@ export function Navbar() {
               whileTap={{ scale: 0.98 }}
             >
               <span className="text-2xl font-bold tracking-[0.2em] text-foreground font-serif">
-                LUXE
+                INKED
               </span>
               <span className="text-[10px] tracking-[0.3em] text-muted-foreground uppercase">
-                Car Rentals
+                Print Studio
               </span>
             </motion.a>
 
-            {/* Desktop Navigation */}
             <nav className="hidden md:block">
               <ul className="flex items-center gap-8">
                 {navItems.map((item) => (
@@ -67,7 +65,6 @@ export function Navbar() {
               </ul>
             </nav>
 
-            {/* CTA Button */}
             <div className="hidden md:block">
               <motion.a
                 href="#contact"
@@ -75,11 +72,10 @@ export function Navbar() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Book Now
+                Get Quote
               </motion.a>
             </div>
 
-            {/* Mobile Menu Button */}
             <button
               className="md:hidden text-foreground p-2"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -90,7 +86,6 @@ export function Navbar() {
         </div>
       </motion.header>
 
-      {/* Mobile Menu */}
       <motion.div
         className={`fixed inset-0 z-40 bg-background/95 backdrop-blur-xl md:hidden ${
           isMobileMenuOpen ? "pointer-events-auto" : "pointer-events-none"

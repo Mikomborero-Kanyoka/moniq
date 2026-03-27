@@ -4,12 +4,17 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Send, MapPin, Phone, Mail, ArrowUpRight } from "lucide-react";
 
-const carCategories = [
-  { value: "", label: "Select car category" },
-  { value: "suv", label: "SUV / 4x4" },
-  { value: "sedan", label: "Luxury Sedan" },
-  { value: "hatchback", label: "Compact / Hatchback" },
-  { value: "electric", label: "Electric" },
+const serviceCategories = [
+  { value: "", label: "Select service" },
+  { value: "plain-tees", label: "Plain T-Shirts" },
+  { value: "apparel", label: "T-Shirts / Hoodies" },
+  { value: "caps", label: "Caps / Promo Wear" },
+  { value: "vehicle", label: "Vehicle Branding" },
+  { value: "glass", label: "Glass / Window Branding" },
+  { value: "vinyl", label: "Vinyl Cutting" },
+  { value: "website", label: "Website Development" },
+  { value: "app", label: "Custom App Development" },
+  { value: "school-project", label: "School Project" },
 ];
 
 export function ContactSection() {
@@ -20,7 +25,6 @@ export function ContactSection() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate submission
     setTimeout(() => setIsSubmitting(false), 2000);
   };
 
@@ -30,7 +34,6 @@ export function ContactSection() {
       id="contact"
       className="relative py-32 bg-background overflow-hidden"
     >
-      {/* Background Decorative Elements */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
       <motion.div
         className="absolute -top-40 -right-40 w-80 h-80 bg-accent/5 rounded-full blur-3xl"
@@ -40,7 +43,6 @@ export function ContactSection() {
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-10 md:gap-16">
-          {/* Left Column - Info */}
           <div>
             <motion.span
               className="inline-block text-xs sm:text-sm uppercase tracking-[0.2em] text-accent mb-3 md:mb-4"
@@ -56,9 +58,9 @@ export function ContactSection() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              Ready to Ride
+              Ready to Build
               <br />
-              <span className="text-accent">in Style?</span>
+              <span className="text-accent">or Brand?</span>
             </motion.h2>
             <motion.p
               className="text-muted-foreground text-base md:text-lg mb-6 md:mb-10"
@@ -66,15 +68,14 @@ export function ContactSection() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              Send us a message and our team will set up your luxury car experience in under 10 minutes. We&apos;re available 24/7.
+              Tell us what you want printed, branded, cut, or built and we will reply with the best option, turnaround time, and quote.
             </motion.p>
 
-            {/* Contact Info */}
             <div className="space-y-4 md:space-y-6">
               {[
                 { icon: MapPin, label: "Location", value: "Harare, Zimbabwe" },
-                { icon: Phone, label: "Phone", value: "+263 77 123 4567" },
-                { icon: Mail, label: "Email", value: "hello@luxecar.co.zw" },
+                { icon: Phone, label: "Phone", value: "+263 785 234 975" },
+                { icon: Mail, label: "Email", value: "hello@inkedstudio.co.zw" },
               ].map((item, index) => (
                 <motion.div
                   key={item.label}
@@ -94,7 +95,6 @@ export function ContactSection() {
               ))}
             </div>
 
-            {/* Social Links */}
             <motion.div
               className="mt-6 pt-6 md:mt-10 md:pt-10 border-t border-border"
               initial={{ opacity: 0 }}
@@ -103,7 +103,7 @@ export function ContactSection() {
             >
               <p className="text-xs md:text-sm text-muted-foreground mb-3 md:mb-4">Follow us</p>
               <div className="flex flex-wrap gap-2 md:gap-3">
-                {["Instagram", "Twitter", "Facebook"].map((social) => (
+                {["Instagram", "WhatsApp", "Facebook"].map((social) => (
                   <motion.a
                     key={social}
                     href="#"
@@ -120,7 +120,6 @@ export function ContactSection() {
             </motion.div>
           </div>
 
-          {/* Right Column - Form */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -164,15 +163,15 @@ export function ContactSection() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="category" className="sr-only">Car Category</label>
+                  <label htmlFor="category" className="sr-only">Service Type</label>
                   <select
                     id="category"
                     className="w-full px-3 md:px-4 py-3 md:py-3.5 bg-background border border-border rounded-lg md:rounded-xl text-sm md:text-base text-foreground focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/20 transition-all appearance-none cursor-pointer"
                     required
                   >
-                    {carCategories.map((cat) => (
-                      <option key={cat.value} value={cat.value}>
-                        {cat.label}
+                    {serviceCategories.map((service) => (
+                      <option key={service.value} value={service.value}>
+                        {service.label}
                       </option>
                     ))}
                   </select>
@@ -183,7 +182,7 @@ export function ContactSection() {
                 <textarea
                   id="message"
                   rows={4}
-                  placeholder="Tell us about your trip..."
+                  placeholder="Tell us what you want printed, branded, cut, or built..."
                   className="w-full px-3 md:px-4 py-3 md:py-3.5 bg-background border border-border rounded-lg md:rounded-xl text-sm md:text-base text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/20 transition-all resize-none"
                 />
               </div>
@@ -209,7 +208,7 @@ export function ContactSection() {
                 )}
               </motion.button>
               <p className="mt-3 md:mt-4 text-center text-xs md:text-sm text-muted-foreground">
-                {"We'll respond within 10 minutes during business hours"}
+                {"We'll respond with pricing, turnaround time, or project scope during business hours"}
               </p>
             </form>
           </motion.div>

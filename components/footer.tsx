@@ -6,21 +6,21 @@ import { ArrowUp } from "lucide-react";
 const footerLinks = {
   company: [
     { label: "About Us", href: "#" },
-    { label: "Our Fleet", href: "#fleet" },
-    { label: "Careers", href: "#" },
-    { label: "Press", href: "#" },
+    { label: "Our Services", href: "#fleet" },
+    { label: "Portfolio", href: "#fleet" },
+    { label: "FAQs", href: "#features" },
   ],
   support: [
     { label: "Contact", href: "#contact" },
-    { label: "FAQs", href: "#" },
-    { label: "Help Center", href: "#" },
-    { label: "Roadside Assistance", href: "#" },
+    { label: "Artwork Guide", href: "#contact" },
+    { label: "Bulk Orders", href: "#contact" },
+    { label: "Turnaround Times", href: "#features" },
   ],
   legal: [
     { label: "Privacy Policy", href: "#" },
     { label: "Terms of Service", href: "#" },
-    { label: "Cookie Policy", href: "#" },
-    { label: "Insurance", href: "#" },
+    { label: "Refund Policy", href: "#" },
+    { label: "File Requirements", href: "#" },
   ],
 };
 
@@ -31,29 +31,26 @@ export function Footer() {
 
   return (
     <footer className="relative bg-card border-t border-border">
-      {/* Main Footer */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 md:py-16">
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-12">
-          {/* Brand Column */}
           <div className="col-span-2 lg:col-span-2">
             <a href="#top" className="inline-block mb-3 md:mb-4">
               <span className="text-2xl md:text-3xl font-bold tracking-[0.2em] text-foreground font-serif">
-                LUXE
+                INKED
               </span>
               <span className="block text-[10px] tracking-[0.3em] text-muted-foreground uppercase">
-                Car Rentals
+                Print Studio
               </span>
             </a>
             <p className="text-sm md:text-base text-muted-foreground max-w-xs mb-4 md:mb-6">
-              Premium car rentals in Zimbabwe. Experience luxury, comfort, and exceptional service on every journey.
+              Custom printing, branding, website development, and app builds for apparel, vehicles, windows, vinyl signage, and school projects.
             </p>
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-              <span className="text-xs md:text-sm text-muted-foreground">Available 24/7</span>
+              <span className="text-xs md:text-sm text-muted-foreground">Open for custom jobs</span>
             </div>
           </div>
 
-          {/* Links */}
           <div>
             <h3 className="text-xs md:text-sm font-semibold text-foreground uppercase tracking-wider mb-3 md:mb-4">
               Company
@@ -110,12 +107,11 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Bottom Bar */}
       <div className="border-t border-border">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4 md:py-6">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3 md:gap-4">
             <p className="text-xs md:text-sm text-muted-foreground text-center sm:text-left">
-              © {new Date().getFullYear()} Luxe Car Rentals. All rights reserved.
+              Copyright {new Date().getFullYear()} Inked Print Studio. All rights reserved.
             </p>
             <motion.button
               onClick={scrollToTop}
