@@ -18,11 +18,12 @@ export function HeroSection() {
       <motion.div className="absolute inset-0 z-0 pointer-events-none" style={{ scale }}>
         <img
           src="/images/hero.png"
-          alt="Printing and branding showcase"
+          alt="Moniq Technologies showcase"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-background/60" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+        {/* Reduced overlay opacity */}
+        <div className="absolute inset-0 bg-background/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
       </motion.div>
 
       <motion.div
@@ -36,8 +37,8 @@ export function HeroSection() {
           className="mb-6 md:mb-8"
         >
           <span className="inline-flex items-center gap-2 px-3 md:px-4 py-1.5 md:py-2 rounded-full border border-border bg-card/50 backdrop-blur-sm text-xs md:text-sm text-muted-foreground">
-            <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-accent animate-pulse" />
-            Printing and Branding Studio
+            <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-sky-400 animate-pulse" />
+            Corporate Technology Agency
           </span>
         </motion.div>
 
@@ -47,8 +48,8 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          <span className="block text-foreground">If You Can Name It,</span>
-          <span className="block text-foreground/35">We Can Brand It</span>
+          <span className="block text-foreground">Bridging Software,</span>
+          <span className="block text-foreground/35">Security, and Scale</span>
         </motion.h1>
 
         <motion.p
@@ -57,7 +58,7 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          Custom printing, branding, website development, and app builds for businesses, events, startups, and school projects.
+          Marketing Automation, Digital Infrastructure, and Technical Security solutions for modern enterprises and scaling businesses.
         </motion.p>
 
         <motion.div
@@ -75,7 +76,7 @@ export function HeroSection() {
             Explore Services
           </motion.a>
           <motion.a
-            href="https://wa.me/263785234975?text=Hi%2C%20I%27d%20like%20a%20quote%20for%20printing%20and%20branding"
+            href="https://wa.me/263785234975?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20Moniq%20Technologies%20services"
             target="_blank"
             rel="noopener noreferrer"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 border border-border rounded-full text-foreground font-medium hover:bg-card/50 transition-all group"
@@ -97,9 +98,9 @@ export function HeroSection() {
           transition={{ duration: 0.8, delay: 1 }}
         >
           {[
-            { value: "$2", label: "Plain tees" },
-            { value: "6+", label: "Core services" },
-            { value: "Dev", label: "Web + apps" },
+            { value: "$5", label: "Weekly starting" },
+            { value: "3", label: "Core pillars" },
+            { value: "24/7", label: "AI Automation" },
           ].map((stat, index) => (
             <motion.div
               key={stat.label}

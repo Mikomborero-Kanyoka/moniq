@@ -4,23 +4,23 @@ import { motion } from "framer-motion";
 import { ArrowUp } from "lucide-react";
 
 const footerLinks = {
-  company: [
-    { label: "About Us", href: "#" },
-    { label: "Our Services", href: "#fleet" },
-    { label: "Portfolio", href: "#fleet" },
-    { label: "FAQs", href: "#features" },
+  about: [
+    { label: "About Us", href: "#features" },
+    { label: "Our Team", href: "#features" },
+    { label: "Services", href: "#fleet" },
+    { label: "Pricing", href: "#pricing" },
+  ],
+  contact: [
+    { label: "Contact", href: "#contact" },
+    { label: "Technical Support", href: "#contact" },
+    { label: "Consultation", href: "#contact" },
+    { label: "System Status", href: "#features" },
   ],
   support: [
-    { label: "Contact", href: "#contact" },
-    { label: "Artwork Guide", href: "#contact" },
-    { label: "Bulk Orders", href: "#contact" },
-    { label: "Turnaround Times", href: "#features" },
-  ],
-  legal: [
     { label: "Privacy Policy", href: "#" },
     { label: "Terms of Service", href: "#" },
-    { label: "Refund Policy", href: "#" },
-    { label: "File Requirements", href: "#" },
+    { label: "SLA", href: "#" },
+    { label: "Data Security", href: "#" },
   ],
 };
 
@@ -30,96 +30,188 @@ export function Footer() {
   };
 
   return (
-    <footer className="relative bg-card border-t border-border">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 md:py-16">
-        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-12">
-          <div className="col-span-2 lg:col-span-2">
-            <a href="#top" className="inline-block mb-3 md:mb-4">
-              <span className="text-2xl md:text-3xl font-bold tracking-[0.2em] text-foreground font-serif">
-                INKED
-              </span>
-              <span className="block text-[10px] tracking-[0.3em] text-muted-foreground uppercase">
-                Print Studio
-              </span>
+    <footer className="relative border-t border-border bg-[#050709]">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="py-10 md:py-14">
+
+          {/* Mobile: brand block */}
+          <div className="mb-10 md:hidden">
+            <a href="#top" className="inline-block overflow-visible">
+              <img
+                src="/images/logo.png"
+                alt="Moniq logo"
+                className="h-16 origin-left scale-[1.7] object-contain object-left"
+              />
             </a>
-            <p className="text-sm md:text-base text-muted-foreground max-w-xs mb-4 md:mb-6">
-              Custom printing, branding, website development, and app builds for apparel, vehicles, windows, vinyl signage, and school projects.
+            <p className="mt-6 max-w-sm text-sm leading-7 text-muted-foreground">
+              Bridging Software, Security, and Scale. Marketing Automation, Digital
+              Infrastructure, and Technical Security.
             </p>
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-              <span className="text-xs md:text-sm text-muted-foreground">Open for custom jobs</span>
+            <div className="mt-6 flex items-center gap-3">
+              <span className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
+              <span className="text-xs text-muted-foreground">Open for custom jobs</span>
             </div>
           </div>
 
-          <div>
-            <h3 className="text-xs md:text-sm font-semibold text-foreground uppercase tracking-wider mb-3 md:mb-4">
-              Company
-            </h3>
-            <ul className="space-y-2 md:space-y-3">
-              {footerLinks.company.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-muted-foreground hover:text-foreground transition-colors text-xs md:text-sm"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
+          {/* Mobile: 3-column links */}
+          <div className="grid grid-cols-3 gap-4 md:hidden">
+            <div>
+              <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-muted-foreground">
+                About
+              </h3>
+              <ul className="space-y-3">
+                {footerLinks.about.map((link) => (
+                  <li key={link.label}>
+                    <a
+                      href={link.href}
+                      className="text-xs text-muted-foreground transition-colors hover:text-foreground"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-muted-foreground">
+                Contact
+              </h3>
+              <ul className="space-y-3">
+                {footerLinks.contact.map((link) => (
+                  <li key={link.label}>
+                    <a
+                      href={link.href}
+                      className={`text-xs transition-colors ${
+                        link.label === "Contact"
+                          ? "text-foreground underline underline-offset-4"
+                          : "text-muted-foreground hover:text-foreground"
+                      }`}
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-muted-foreground">
+                Support
+              </h3>
+              <ul className="space-y-3">
+                {footerLinks.support.map((link) => (
+                  <li key={link.label}>
+                    <a
+                      href={link.href}
+                      className="text-xs text-muted-foreground transition-colors hover:text-foreground"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
-          <div>
-            <h3 className="text-xs md:text-sm font-semibold text-foreground uppercase tracking-wider mb-3 md:mb-4">
-              Support
-            </h3>
-            <ul className="space-y-2 md:space-y-3">
-              {footerLinks.support.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-muted-foreground hover:text-foreground transition-colors text-xs md:text-sm"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
+          {/* Desktop layout */}
+          <div className="hidden md:grid md:grid-cols-[1.6fr_1fr_1fr_1fr] md:gap-12">
+            <div>
+              <a href="#top" className="mb-5 inline-block overflow-visible">
+                <img
+                  src="/images/logo.png"
+                  alt="Moniq logo"
+                  className="h-18 w-36 origin-left scale-[1.7] object-contain"
+                />
+              </a>
+              <p className="max-w-sm text-base leading-9 text-muted-foreground">
+                Bridging Software, Security, and Scale. Marketing Automation, Digital
+                Infrastructure, and Technical Security.
+              </p>
+              <div className="mt-8 flex items-center gap-3">
+                <span className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
+                <span className="text-sm text-muted-foreground">Open for custom jobs</span>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="mb-5 text-sm font-semibold uppercase tracking-[0.35em] text-muted-foreground">
+                About Us
+              </h3>
+              <ul className="space-y-5">
+                {footerLinks.about.map((link) => (
+                  <li key={link.label}>
+                    <a
+                      href={link.href}
+                      className="text-base text-muted-foreground transition-colors hover:text-foreground"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="mb-5 text-sm font-semibold uppercase tracking-[0.35em] text-muted-foreground">
+                Contact
+              </h3>
+              <ul className="space-y-5">
+                {footerLinks.contact.map((link) => (
+                  <li key={link.label}>
+                    <a
+                      href={link.href}
+                      className={`text-base transition-colors ${
+                        link.label === "Contact"
+                          ? "text-foreground underline underline-offset-4"
+                          : "text-muted-foreground hover:text-foreground"
+                      }`}
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="mb-5 text-sm font-semibold uppercase tracking-[0.35em] text-muted-foreground">
+                Support
+              </h3>
+              <ul className="space-y-5">
+                {footerLinks.support.map((link) => (
+                  <li key={link.label}>
+                    <a
+                      href={link.href}
+                      className="text-base text-muted-foreground transition-colors hover:text-foreground"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
-          <div className="col-span-2 sm:col-span-1">
-            <h3 className="text-xs md:text-sm font-semibold text-foreground uppercase tracking-wider mb-3 md:mb-4">
-              Legal
-            </h3>
-            <ul className="space-y-2 md:space-y-3">
-              {footerLinks.legal.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-muted-foreground hover:text-foreground transition-colors text-xs md:text-sm"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
         </div>
       </div>
 
-      <div className="border-t border-border">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4 md:py-6">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 md:gap-4">
-            <p className="text-xs md:text-sm text-muted-foreground text-center sm:text-left">
-              Copyright {new Date().getFullYear()} Inked Print Studio. All rights reserved.
+      <div className="border-t border-border/70">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-5 md:py-6">
+          <div className="flex flex-col items-center justify-between gap-3 sm:flex-row md:gap-4">
+            <p className="text-center text-xs text-muted-foreground sm:text-left md:text-sm">
+              © 2026 Moniq Technologies. All rights reserved.
             </p>
             <motion.button
               onClick={scrollToTop}
-              className="flex items-center gap-2 text-xs md:text-sm text-muted-foreground hover:text-foreground transition-colors group"
+              className="group flex items-center gap-2 text-xs text-muted-foreground transition-colors hover:text-foreground md:text-sm"
               whileHover={{ y: -2 }}
             >
               Back to top
-              <ArrowUp size={14} className="group-hover:-translate-y-0.5 transition-transform" />
+              <ArrowUp
+                size={14}
+                className="transition-transform group-hover:-translate-y-0.5"
+              />
             </motion.button>
           </div>
         </div>

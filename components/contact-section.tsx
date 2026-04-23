@@ -6,15 +6,10 @@ import { Send, MapPin, Phone, Mail, ArrowUpRight } from "lucide-react";
 
 const serviceCategories = [
   { value: "", label: "Select service" },
-  { value: "plain-tees", label: "Plain T-Shirts" },
-  { value: "apparel", label: "T-Shirts / Hoodies" },
-  { value: "caps", label: "Caps / Promo Wear" },
-  { value: "vehicle", label: "Vehicle Branding" },
-  { value: "glass", label: "Glass / Window Branding" },
-  { value: "vinyl", label: "Vinyl Cutting" },
-  { value: "website", label: "Website Development" },
-  { value: "app", label: "Custom App Development" },
-  { value: "school-project", label: "School Project" },
+  { value: "marketing", label: "Marketing Automation (Moniq Pulse)" },
+  { value: "infrastructure", label: "Digital Infrastructure" },
+  { value: "security", label: "Technical Security" },
+  { value: "other", label: "Other Inquiry" },
 ];
 
 export function ContactSection() {
@@ -36,7 +31,7 @@ export function ContactSection() {
     >
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
       <motion.div
-        className="absolute -top-40 -right-40 w-80 h-80 bg-accent/5 rounded-full blur-3xl"
+        className="absolute -top-40 -right-40 w-80 h-80 bg-sky-500/5 rounded-full blur-3xl"
         animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
         transition={{ duration: 8, repeat: Infinity }}
       />
@@ -45,7 +40,7 @@ export function ContactSection() {
         <div className="grid lg:grid-cols-2 gap-10 md:gap-16">
           <div>
             <motion.span
-              className="inline-block text-xs sm:text-sm uppercase tracking-[0.2em] text-accent mb-3 md:mb-4"
+              className="inline-block text-xs sm:text-sm uppercase tracking-[0.2em] text-sky-400 mb-3 md:mb-4"
               initial={{ opacity: 0, x: -20 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6 }}
@@ -58,9 +53,9 @@ export function ContactSection() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              Ready to Build
+              Ready to Scale
               <br />
-              <span className="text-accent">or Brand?</span>
+              <span className="text-sky-400">or Secure?</span>
             </motion.h2>
             <motion.p
               className="text-muted-foreground text-base md:text-lg mb-6 md:mb-10"
@@ -68,14 +63,14 @@ export function ContactSection() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              Tell us what you want printed, branded, cut, or built and we will reply with the best option, turnaround time, and quote.
+              Tell us about your automation, infrastructure, or security needs and our team will get back to you with a professional roadmap and quote.
             </motion.p>
 
             <div className="space-y-4 md:space-y-6">
               {[
                 { icon: MapPin, label: "Location", value: "Harare, Zimbabwe" },
                 { icon: Phone, label: "Phone", value: "+263 785 234 975" },
-                { icon: Mail, label: "Email", value: "hello@inkedstudio.co.zw" },
+                { icon: Mail, label: "Email", value: "info@moniq.co.zw" },
               ].map((item, index) => (
                 <motion.div
                   key={item.label}
@@ -85,7 +80,7 @@ export function ContactSection() {
                   transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
                 >
                   <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg md:rounded-xl bg-card border border-border flex items-center justify-center flex-shrink-0">
-                    <item.icon size={18} className="text-accent" />
+                    <item.icon size={18} className="text-sky-400" />
                   </div>
                   <div>
                     <p className="text-xs md:text-sm text-muted-foreground">{item.label}</p>
@@ -107,7 +102,7 @@ export function ContactSection() {
                   <motion.a
                     key={social}
                     href="#"
-                    className="px-3 md:px-4 py-1.5 md:py-2 bg-card border border-border rounded-full text-xs md:text-sm text-foreground hover:border-accent/50 transition-colors flex items-center gap-1 group"
+                    className="px-3 md:px-4 py-1.5 md:py-2 bg-card border border-border rounded-full text-xs md:text-sm text-foreground hover:border-sky-400/50 transition-colors flex items-center gap-1 group"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
@@ -136,7 +131,7 @@ export function ContactSection() {
                     id="name"
                     type="text"
                     placeholder="Full Name"
-                    className="w-full px-3 md:px-4 py-3 md:py-3.5 bg-background border border-border rounded-lg md:rounded-xl text-sm md:text-base text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/20 transition-all"
+                    className="w-full px-3 md:px-4 py-3 md:py-3.5 bg-background border border-border rounded-lg md:rounded-xl text-sm md:text-base text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-sky-400/50 focus:ring-2 focus:ring-sky-500/20 transition-all"
                     required
                   />
                 </div>
@@ -146,7 +141,7 @@ export function ContactSection() {
                     id="email"
                     type="email"
                     placeholder="Email"
-                    className="w-full px-3 md:px-4 py-3 md:py-3.5 bg-background border border-border rounded-lg md:rounded-xl text-sm md:text-base text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/20 transition-all"
+                    className="w-full px-3 md:px-4 py-3 md:py-3.5 bg-background border border-border rounded-lg md:rounded-xl text-sm md:text-base text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-sky-400/50 focus:ring-2 focus:ring-sky-500/20 transition-all"
                     required
                   />
                 </div>
@@ -158,7 +153,7 @@ export function ContactSection() {
                     id="phone"
                     type="tel"
                     placeholder="Phone Number"
-                    className="w-full px-3 md:px-4 py-3 md:py-3.5 bg-background border border-border rounded-lg md:rounded-xl text-sm md:text-base text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/20 transition-all"
+                    className="w-full px-3 md:px-4 py-3 md:py-3.5 bg-background border border-border rounded-lg md:rounded-xl text-sm md:text-base text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-sky-400/50 focus:ring-2 focus:ring-sky-500/20 transition-all"
                     required
                   />
                 </div>
@@ -166,7 +161,7 @@ export function ContactSection() {
                   <label htmlFor="category" className="sr-only">Service Type</label>
                   <select
                     id="category"
-                    className="w-full px-3 md:px-4 py-3 md:py-3.5 bg-background border border-border rounded-lg md:rounded-xl text-sm md:text-base text-foreground focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/20 transition-all appearance-none cursor-pointer"
+                    className="w-full px-3 md:px-4 py-3 md:py-3.5 bg-background border border-border rounded-lg md:rounded-xl text-sm md:text-base text-foreground focus:outline-none focus:border-sky-400/50 focus:ring-2 focus:ring-sky-500/20 transition-all appearance-none cursor-pointer"
                     required
                   >
                     {serviceCategories.map((service) => (
@@ -182,8 +177,8 @@ export function ContactSection() {
                 <textarea
                   id="message"
                   rows={4}
-                  placeholder="Tell us what you want printed, branded, cut, or built..."
-                  className="w-full px-3 md:px-4 py-3 md:py-3.5 bg-background border border-border rounded-lg md:rounded-xl text-sm md:text-base text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/20 transition-all resize-none"
+                  placeholder="Tell us about your project or automation needs..."
+                  className="w-full px-3 md:px-4 py-3 md:py-3.5 bg-background border border-border rounded-lg md:rounded-xl text-sm md:text-base text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-sky-400/50 focus:ring-2 focus:ring-sky-500/20 transition-all resize-none"
                 />
               </div>
               <motion.button
@@ -208,7 +203,7 @@ export function ContactSection() {
                 )}
               </motion.button>
               <p className="mt-3 md:mt-4 text-center text-xs md:text-sm text-muted-foreground">
-                {"We'll respond with pricing, turnaround time, or project scope during business hours"}
+                {"We'll respond with a technical roadmap, turnaround time, or project scope during business hours"}
               </p>
             </form>
           </motion.div>

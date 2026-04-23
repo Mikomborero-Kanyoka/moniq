@@ -7,6 +7,7 @@ import { Menu, X } from "lucide-react";
 const navItems = [
   { label: "Home", href: "#top" },
   { label: "Services", href: "#fleet" },
+  { label: "Pricing", href: "#pricing" },
   { label: "Why Us", href: "#features" },
   { label: "Contact", href: "#contact" },
 ];
@@ -36,16 +37,15 @@ export function Navbar() {
           <div className="flex h-20 items-center justify-between">
             <motion.a
               href="#top"
-              className="flex flex-col"
+              className="flex items-center overflow-visible"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <span className="text-2xl font-bold tracking-[0.2em] text-foreground font-serif">
-                INKED
-              </span>
-              <span className="text-[10px] tracking-[0.3em] text-muted-foreground uppercase">
-                Print Studio
-              </span>
+              <img
+                src="/images/logo.png"
+                alt="Moniq logo"
+                className="h-20 w-40 scale-[1.9] origin-left object-contain object-left"
+              />
             </motion.a>
 
             <nav className="hidden md:block">
@@ -58,7 +58,7 @@ export function Navbar() {
                       whileHover={{ y: -2 }}
                     >
                       {item.label}
-                      <span className="absolute -bottom-1 left-0 w-0 h-px bg-accent group-hover:w-full transition-all duration-300" />
+                      <span className="absolute -bottom-1 left-0 w-0 h-px bg-sky-400 group-hover:w-full transition-all duration-300" />
                     </motion.a>
                   </li>
                 ))}

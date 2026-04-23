@@ -9,8 +9,8 @@ const plusJakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: 'Inked Print Studio | Printing & Branding',
-  description: 'Custom printing, branding, website development, and app builds for apparel, vehicles, windows, vinyl cutting, and school projects.',
+  title: 'Moniq Technologies | Bridging Software, Security, and Scale',
+  description: 'Marketing Automation, Digital Infrastructure, and Technical Security solutions.',
   generator: 'v0.app',
   icons: {
     icon: [

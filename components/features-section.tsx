@@ -2,38 +2,38 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Shirt, CarFront, Scissors, Globe, CheckCircle2 } from "lucide-react";
+import { Bot, Globe, Shield, Zap, CheckCircle2 } from "lucide-react";
 
 const features = [
   {
-    icon: Shirt,
-    title: "T-Shirts, Hoodies and Plain Tees",
-    description: "Branded apparel plus plain t-shirts from $2 for teams, events, resale, uniforms, and everyday wear.",
-  },
-  {
-    icon: CarFront,
-    title: "Caps, Cars and Glass Branding",
-    description: "Brand caps, vehicles, shopfront glass, doors, and windows with clean, durable graphics that stand out.",
-  },
-  {
-    icon: Scissors,
-    title: "Precision Vinyl Cutting",
-    description: "Sharp-cut decals, lettering, stickers, and signage pieces prepared to fit your surface or project.",
+    icon: Bot,
+    title: "Marketing Automation",
+    description: "24/7 AI-driven social media group posting and lead generation via Moniq Pulse.",
   },
   {
     icon: Globe,
-    title: "Websites and Custom Apps",
-    description: "We also build websites, custom apps, and school project solutions for clients who need digital work too.",
+    title: "Digital Infrastructure",
+    description: "Custom web development, professional enterprise email setup, and automated management systems.",
+  },
+  {
+    icon: Shield,
+    title: "Technical Security",
+    description: "Advanced CCTV/NVR installation, network mesh optimization, and smart hardware monitoring.",
+  },
+  {
+    icon: Zap,
+    title: "System Scale",
+    description: "Built for growth with optimized networks and high-performance digital architectures.",
   },
 ];
 
 const benefits = [
-  "Plain tees from $2",
-  "Caps and promo wear",
-  "Vehicle branding",
-  "Glass decals",
-  "Websites and apps",
-  "School projects too",
+  "24/7 AI-driven posting",
+  "Moniq Pulse automation",
+  "Custom web platforms",
+  "Enterprise email setup",
+  "CCTV/NVR surveillance",
+  "Network mesh systems",
 ];
 
 export function FeaturesSection() {
@@ -61,12 +61,12 @@ export function FeaturesSection() {
         <div className="grid lg:grid-cols-2 gap-10 md:gap-16 items-center">
           <div>
             <motion.span
-              className="inline-block text-xs sm:text-sm uppercase tracking-[0.2em] text-accent mb-3 md:mb-4"
+              className="inline-block text-xs sm:text-sm uppercase tracking-[0.2em] text-sky-400 mb-3 md:mb-4"
               initial={{ opacity: 0, x: -20 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6 }}
             >
-              Why Print Here
+              Why Choose Us
             </motion.span>
             <motion.h2
               className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-foreground mb-4 md:mb-6"
@@ -74,7 +74,7 @@ export function FeaturesSection() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              Print, Brand and Build
+              Scale, Secure and Automate
             </motion.h2>
             <motion.p
               className="text-muted-foreground text-base md:text-lg mb-6 md:mb-8"
@@ -82,7 +82,7 @@ export function FeaturesSection() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              From single shirts to full storefront branding and digital builds, we keep the process simple and the final result clean, useful, and ready to represent your brand well.
+              We bridge the gap between complex software, robust security, and scalable infrastructure, ensuring your business operations are modern and automated.
             </motion.p>
 
             <motion.div
@@ -99,7 +99,7 @@ export function FeaturesSection() {
                   animate={isInView ? { opacity: 1, x: 0 } : {}}
                   transition={{ delay: 0.4 + index * 0.05 }}
                 >
-                  <CheckCircle2 size={16} className="text-accent flex-shrink-0" />
+                  <CheckCircle2 size={16} className="text-sky-400 flex-shrink-0" />
                   <span className="text-sm">{benefit}</span>
                 </motion.div>
               ))}
@@ -126,15 +126,15 @@ export function FeaturesSection() {
             {features.map((feature, index) => (
               <motion.div
                 key={feature.title}
-                className="group relative p-4 md:p-6 bg-background rounded-xl md:rounded-2xl border border-border hover:border-accent/50 transition-colors"
+                className="group relative p-4 md:p-6 bg-background rounded-xl md:rounded-2xl border border-border hover:border-sky-400/50 transition-colors"
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
                 whileHover={{ y: -5 }}
               >
-                <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg md:rounded-xl bg-accent/10 flex items-center justify-center mb-3 md:mb-4 group-hover:bg-accent/20 transition-colors">
-                  <feature.icon size={20} className="md:hidden text-accent" />
-                  <feature.icon size={24} className="hidden md:block text-accent" />
+                <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg md:rounded-xl bg-sky-500/10 flex items-center justify-center mb-3 md:mb-4 group-hover:bg-sky-500/20 transition-colors">
+                  <feature.icon size={20} className="md:hidden text-sky-400" />
+                  <feature.icon size={24} className="hidden md:block text-sky-400" />
                 </div>
 
                 <h3 className="text-sm md:text-lg font-semibold text-foreground mb-1 md:mb-2">
@@ -145,7 +145,7 @@ export function FeaturesSection() {
                 </p>
 
                 <motion.div
-                  className="absolute bottom-0 left-4 right-4 md:left-6 md:right-6 h-0.5 bg-accent rounded-full"
+                  className="absolute bottom-0 left-4 right-4 md:left-6 md:right-6 h-0.5 bg-sky-400 rounded-full"
                   initial={{ scaleX: 0 }}
                   whileHover={{ scaleX: 1 }}
                   transition={{ duration: 0.3 }}
@@ -161,21 +161,36 @@ export function FeaturesSection() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.6 }}
         >
-          <blockquote className="max-w-3xl mx-auto">
-            <p className="text-2xl md:text-3xl font-serif text-foreground mb-6 italic">
-              {`"We help brands show up properly in print and online, from plain tees and vinyl cutting to custom websites and apps built with care."`}
+          <blockquote className="max-w-4xl mx-auto">
+            <p className="text-2xl md:text-3xl font-serif text-foreground mb-10 italic">
+              {`"Bridging Software, Security, and Scale for the modern digital landscape."`}
             </p>
-            <footer className="flex items-center justify-center gap-4">
-              <img
-                src="/images/miko.jpg"
-                alt="Owner portrait"
-                className="w-12 h-12 rounded-full object-cover"
-              />
-              <div className="text-left">
-                <cite className="not-italic font-medium text-foreground">
-                  Mikomborero Kanyoka
-                </cite>
-                <p className="text-sm text-muted-foreground">Owner, Software Engineer</p>
+            <footer className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
+              <div className="flex items-center gap-4 text-left">
+                <img
+                  src="/images/miko.jpg"
+                  alt="Mikomborero Kanyoka"
+                  className="w-12 h-12 rounded-full object-cover"
+                />
+                <div>
+                  <cite className="not-italic font-medium text-foreground">
+                    Mikomborero Kanyoka
+                  </cite>
+                  <p className="text-sm text-muted-foreground">Co-founder, CEO & Software Engineer</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-4 text-left">
+                <img
+                  src="/images/solomon.jpg"
+                  alt="Solomon M. Moyo"
+                  className="w-12 h-12 rounded-full object-cover"
+                />
+                <div>
+                  <cite className="not-italic font-medium text-foreground">
+                    Solomon M. Moyo
+                  </cite>
+                  <p className="text-sm text-muted-foreground">Co-founder, COO & Network Engineer</p>
+                </div>
               </div>
             </footer>
           </blockquote>

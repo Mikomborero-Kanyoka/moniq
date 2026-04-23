@@ -6,40 +6,31 @@ import { Package, ArrowRight } from "lucide-react";
 
 const services = [
   {
-    name: "T-Shirts and Hoodies",
-    type: "Apparel Printing",
-    detail: "Plain tees from $2",
-    price: "From $2",
-    period: "item",
-    image: "/images/tshirt.png",
-    features: ["Plain tees", "DTF print", "Heat press"],
-  },
-  {
-    name: "Caps and Promo Wear",
-    type: "Merch Branding",
-    detail: "Events and staff wear",
+    name: "Marketing Automation (Moniq Pulse)",
+    type: "Digital Growth",
+    detail: "24/7 AI-driven lead generation",
     price: "From $5",
-    period: "item",
-    image: "/images/cap.png",
-    features: ["Caps", "Uniform sets", "Promo gear"],
+    period: "week",
+    image: "/images/pulse.png",
+    features: ["Social group posting", "Lead generation", "24/7 AI-driven"],
   },
   {
-    name: "Vehicle Branding",
-    type: "Car Graphics",
-    detail: "Cars, vans, and fleets",
+    name: "Digital Infrastructure",
+    type: "Enterprise Solutions",
+    detail: "Custom web and email systems",
     price: "Custom",
     period: "quote",
-    image: "/images/car.png",
-    features: ["Door decals", "Partial wraps", "Company branding"],
+    image: "/images/web.png",
+    features: ["Web development", "Enterprise email", "Management systems"],
   },
   {
-    name: "Glass and Vinyl Cutting",
-    type: "Window Graphics",
-    detail: "Shops and office glass",
-    price: "From $4",
-    period: "meter",
-    image: "/images/glass.png",
-    features: ["Frosted vinyl", "Lettering", "Cut decals"],
+    name: "Technical Security",
+    type: "Technical Systems",
+    detail: "Advanced surveillance & mesh",
+    price: "Custom",
+    period: "quote",
+    image: "/images/security.png",
+    features: ["CCTV/NVR systems", "Network mesh", "Smart monitoring"],
   },
 ];
 
@@ -62,18 +53,18 @@ export function FleetSection() {
           transition={{ duration: 0.8 }}
         >
           <motion.span
-            className="inline-block text-xs sm:text-sm uppercase tracking-[0.2em] text-accent mb-3 md:mb-4"
+            className="inline-block text-xs sm:text-sm uppercase tracking-[0.2em] text-sky-400 mb-3 md:mb-4"
             initial={{ opacity: 0, x: -20 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Our Services
+            Our Solutions
           </motion.span>
           <h2 className="text-3xl sm:text-4xl md:text-6xl font-serif font-bold text-foreground mb-4 md:mb-6">
-            Print, Branding and Digital Services
+            Core Technology Pillars
           </h2>
           <p className="max-w-xl text-muted-foreground text-base md:text-lg">
-            Explore the custom work we do for apparel, caps, vehicles, windows, and vinyl projects, plus websites, custom apps, and school project builds.
+            Scalable automation, robust digital infrastructure, and advanced technical security tailored for corporate excellence.
           </p>
         </motion.div>
 
@@ -114,7 +105,7 @@ export function FleetSection() {
               <div className="p-4 md:p-6">
                 <div className="flex items-start justify-between mb-3 md:mb-4">
                   <div>
-                    <span className="text-xs uppercase tracking-wider text-accent">
+                    <span className="text-xs uppercase tracking-wider text-sky-400">
                       {service.type}
                     </span>
                     <h3 className="text-xl md:text-2xl font-serif font-bold text-foreground mt-1">
@@ -161,8 +152,8 @@ export function FleetSection() {
                 animate={{
                   boxShadow:
                     hoveredIndex === index
-                      ? "inset 0 0 100px rgba(200, 150, 80, 0.1)"
-                      : "inset 0 0 0px rgba(200, 150, 80, 0)",
+                      ? "inset 0 0 100px rgba(59, 130, 246, 0.14)"
+                      : "inset 0 0 0px rgba(59, 130, 246, 0)",
                 }}
                 transition={{ duration: 0.3 }}
               />
@@ -178,10 +169,10 @@ export function FleetSection() {
         >
           <motion.a
             href="#contact"
-            className="inline-flex items-center gap-2 text-foreground font-medium hover:text-accent transition-colors group"
+            className="inline-flex items-center gap-2 text-foreground font-medium hover:text-sky-400 transition-colors group"
             whileHover={{ x: 5 }}
           >
-            Need print or a custom app?
+            Need custom automation or security?
             <ArrowRight
               size={18}
               className="group-hover:translate-x-1 transition-transform"
