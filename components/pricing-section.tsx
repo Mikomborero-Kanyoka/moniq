@@ -2,41 +2,57 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { CheckCircle2, ArrowRight } from "lucide-react";
+import { ArrowRight, Camera, Code2, GraduationCap, ShieldCheck } from "lucide-react";
+import { useQuoteWhatsApp } from "@/hooks/use-quote-whatsapp";
 
 const pricingTiers = [
   {
-    name: "The Starter Boost",
-    price: "$5",
-    period: "week",
-    description: "Ideal for basic visibility and consistent group presence.",
+    name: "Websites",
+    price: "$50",
+    period: "starting",
+    description: "Professional 1-page landing and branded email setup.",
+    icon: Code2,
     features: [
-      "25 daily automated posts",
-      "High-traffic group targeting",
-      "Standard support",
+      "Business-ready landing page",
+      "Mobile-first layout",
+      "Professional email onboarding",
     ],
   },
   {
-    name: "The Professional Monitor",
-    price: "$10",
-    period: "week",
-    description: "Advanced automation with real-time lead monitoring.",
+    name: "Camera Settings/Maintenance",
+    price: "$50",
+    period: "starting",
+    description: "System optimization, setup, and maintenance for installed cameras.",
+    icon: Camera,
     features: [
-      "All Starter Boost features",
-      "AI-powered comment monitoring",
-      "Instant WhatsApp lead alerts",
+      "Camera and recorder setup",
+      "Fault checks and tuning",
+      "Performance optimization",
     ],
     highlighted: true,
   },
   {
-    name: "The Enterprise Engine",
-    price: "$20",
-    period: "week",
-    description: "Complete hands-off sales and management solution.",
+    name: "Basic Sensor Security",
+    price: "$120",
+    period: "starting",
+    description: "Smart security and intrusion detection for smaller properties.",
+    icon: ShieldCheck,
     features: [
-      "Full 24/7 AI Sales Agent",
-      "Complete Page Management",
-      "Weekly Analytics Reports",
+      "Entry-level sensor package",
+      "Intrusion detection setup",
+      "Basic smart alert configuration",
+    ],
+  },
+  {
+    name: "Academic Projects",
+    price: "Custom",
+    period: "quote",
+    description: "Quoted according to complexity, scope, and technical depth.",
+    icon: GraduationCap,
+    features: [
+      "Project planning support",
+      "System design guidance",
+      "Technical documentation help",
     ],
   },
 ];
@@ -44,65 +60,75 @@ const pricingTiers = [
 export function PricingSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, margin: "-100px" });
+  const { href: whatsappHref } = useQuoteWhatsApp(
+    "Hi, I'd like a quote for Moniq Technologies."
+  );
 
   return (
-    <section
-      ref={containerRef}
-      id="pricing"
-      className="relative py-32 bg-card overflow-hidden"
-    >
+    <section ref={containerRef} id="pricing" className="relative overflow-hidden bg-card py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
-          className="mb-12 md:mb-20 text-center"
+          className="mb-12 text-center md:mb-20"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
-          <span className="inline-block text-xs sm:text-sm uppercase tracking-[0.2em] text-sky-400 mb-3 md:mb-4">
-            Pricing Plans
+          <span className="mb-3 inline-block text-xs uppercase tracking-[0.2em] text-sky-400 sm:text-sm md:mb-4">
+            Transparent Pricing
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-foreground mb-4 md:mb-6">
-            Service Bundles
+          <h2 className="mb-4 text-3xl font-serif font-bold text-foreground sm:text-4xl md:mb-6 md:text-5xl">
+            Transparent Starting Rates
           </h2>
+          <p className="mx-auto max-w-2xl text-sm text-muted-foreground md:text-base">
+            Straightforward entry pricing for common requests, with tailored quotes for
+            bigger deployments and more advanced academic work.
+          </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8 xl:grid-cols-4">
           {pricingTiers.map((tier, index) => (
             <motion.div
               key={tier.name}
-              className={`relative p-8 rounded-3xl border ${
+              className={`relative rounded-3xl border p-8 ${
                 tier.highlighted
-                  ? "bg-background border-sky-400 shadow-2xl shadow-sky-500/10"
-                  : "bg-background/50 border-border"
+                  ? "border-sky-400 bg-background shadow-2xl shadow-sky-500/10"
+                  : "border-border bg-background/50"
               }`}
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.15 }}
             >
               {tier.highlighted && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-sky-400 text-background text-xs font-bold rounded-full uppercase tracking-wider">
-                  Most Popular
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-sky-400 px-4 py-1 text-xs font-bold uppercase tracking-wider text-background">
+                  Popular Starting Point
                 </div>
               )}
-              <h3 className="text-xl font-bold text-foreground mb-2">{tier.name}</h3>
-              <div className="flex items-baseline gap-1 mb-4">
-                <span className="text-4xl font-serif font-bold text-foreground">{tier.price}</span>
-                <span className="text-muted-foreground text-sm">/{tier.period}</span>
+
+              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-sky-500/10 text-sky-300">
+                <tier.icon size={22} />
               </div>
-              <p className="text-sm text-muted-foreground mb-8">
-                {tier.description}
-              </p>
-              <ul className="space-y-4 mb-8">
+
+              <h3 className="mb-2 text-xl font-bold text-foreground">{tier.name}</h3>
+              <div className="mb-4 flex items-baseline gap-1">
+                <span className="text-4xl font-serif font-bold text-foreground">{tier.price}</span>
+                <span className="text-sm text-muted-foreground">{tier.period}</span>
+              </div>
+              <p className="mb-8 text-sm text-muted-foreground">{tier.description}</p>
+
+              <ul className="mb-8 space-y-4">
                 {tier.features.map((feature) => (
                   <li key={feature} className="flex items-start gap-3 text-sm text-foreground">
-                    <CheckCircle2 size={16} className="text-sky-400 flex-shrink-0 mt-0.5" />
+                    <span className="mt-0.5 h-2.5 w-2.5 flex-shrink-0 rounded-full bg-sky-400" />
                     {feature}
                   </li>
                 ))}
               </ul>
+
               <motion.a
-                href="#contact"
-                className={`flex items-center justify-center gap-2 w-full py-3 rounded-xl font-medium transition-colors ${
+                href={whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`flex w-full items-center justify-center gap-2 rounded-xl py-3 font-medium transition-colors ${
                   tier.highlighted
                     ? "bg-foreground text-background"
                     : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
@@ -110,7 +136,7 @@ export function PricingSection() {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                Get Started
+                Get Quote
                 <ArrowRight size={16} />
               </motion.a>
             </motion.div>

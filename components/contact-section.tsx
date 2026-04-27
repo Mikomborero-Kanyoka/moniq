@@ -2,45 +2,63 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Send, MapPin, Phone, Mail, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { buildQuoteWhatsAppUrl } from "@/lib/quote-whatsapp";
+import { useQuoteWhatsApp } from "@/hooks/use-quote-whatsapp";
 
 const serviceCategories = [
   { value: "", label: "Select service" },
-  { value: "marketing", label: "Marketing Automation (Moniq Pulse)" },
-  { value: "infrastructure", label: "Digital Infrastructure" },
-  { value: "security", label: "Technical Security" },
-  { value: "other", label: "Other Inquiry" },
+  { value: "Technical Security", label: "Technical Security" },
+  { value: "Digital Infrastructure", label: "Digital Infrastructure" },
+  { value: "Academic Development", label: "Academic Development" },
+  { value: "Other Inquiry", label: "Other Inquiry" },
 ];
 
 export function ContactSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, margin: "-100px" });
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { href: quickWhatsAppHref, number: quoteWhatsAppNumber } = useQuoteWhatsApp();
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    category: "",
+    message: "",
+  });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    setTimeout(() => setIsSubmitting(false), 2000);
+
+    const composedMessage = [
+      "Hi Moniq Technologies, I'd like a quote.",
+      `Name: ${formData.name}`,
+      `Email: ${formData.email}`,
+      `Phone: ${formData.phone}`,
+      `Service: ${formData.category || "Not specified"}`,
+      `Project details: ${formData.message || "Please contact me with available options."}`,
+    ].join("\n");
+
+    window.open(
+      buildQuoteWhatsAppUrl(quoteWhatsAppNumber, composedMessage),
+      "_blank",
+      "noopener,noreferrer"
+    );
   };
 
   return (
-    <section
-      ref={containerRef}
-      id="contact"
-      className="relative py-32 bg-background overflow-hidden"
-    >
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+    <section ref={containerRef} id="contact" className="relative overflow-hidden bg-background py-24 md:py-32">
+      <div className="absolute top-0 left-0 h-px w-full bg-gradient-to-r from-transparent via-border to-transparent" />
       <motion.div
-        className="absolute -top-40 -right-40 w-80 h-80 bg-sky-500/5 rounded-full blur-3xl"
+        className="absolute -top-40 -right-40 h-80 w-80 rounded-full bg-sky-500/5 blur-3xl"
         animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
         transition={{ duration: 8, repeat: Infinity }}
       />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-10 md:gap-16">
+        <div className="grid gap-10 lg:grid-cols-2 md:gap-16">
           <div>
             <motion.span
-              className="inline-block text-xs sm:text-sm uppercase tracking-[0.2em] text-sky-400 mb-3 md:mb-4"
+              className="mb-3 inline-block text-xs uppercase tracking-[0.2em] text-sky-400 sm:text-sm md:mb-4"
               initial={{ opacity: 0, x: -20 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6 }}
@@ -48,28 +66,29 @@ export function ContactSection() {
               Get In Touch
             </motion.span>
             <motion.h2
-              className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-foreground mb-4 md:mb-6"
+              className="mb-4 text-3xl font-serif font-bold text-foreground sm:text-4xl md:mb-6 md:text-5xl"
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              Ready to Scale
+              Let&apos;s Design
               <br />
-              <span className="text-sky-400">or Secure?</span>
+              <span className="text-sky-400">or Secure Your Next Build</span>
             </motion.h2>
             <motion.p
-              className="text-muted-foreground text-base md:text-lg mb-6 md:mb-10"
+              className="mb-6 text-base text-muted-foreground md:mb-10 md:text-lg"
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              Tell us about your automation, infrastructure, or security needs and our team will get back to you with a professional roadmap and quote.
+              Tell us about your security, infrastructure, or academic support needs and
+              we&apos;ll move the conversation straight into WhatsApp with the right context.
             </motion.p>
 
             <div className="space-y-4 md:space-y-6">
               {[
                 { icon: MapPin, label: "Location", value: "Harare, Zimbabwe" },
-                { icon: Phone, label: "Phone", value: "+263 785 234 975" },
+                { icon: Phone, label: "Phone", value: "0711 942 294" },
                 { icon: Mail, label: "Email", value: "info@moniq.co.zw" },
               ].map((item, index) => (
                 <motion.div
@@ -79,36 +98,48 @@ export function ContactSection() {
                   animate={isInView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
                 >
-                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg md:rounded-xl bg-card border border-border flex items-center justify-center flex-shrink-0">
+                  <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg border border-border bg-card md:h-12 md:w-12 md:rounded-xl">
                     <item.icon size={18} className="text-sky-400" />
                   </div>
                   <div>
-                    <p className="text-xs md:text-sm text-muted-foreground">{item.label}</p>
-                    <p className="text-sm md:text-base text-foreground font-medium">{item.value}</p>
+                    <p className="text-xs text-muted-foreground md:text-sm">{item.label}</p>
+                    <p className="text-sm font-medium text-foreground md:text-base">{item.value}</p>
                   </div>
                 </motion.div>
               ))}
             </div>
 
             <motion.div
-              className="mt-6 pt-6 md:mt-10 md:pt-10 border-t border-border"
+              className="mt-6 border-t border-border pt-6 md:mt-10 md:pt-10"
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : {}}
               transition={{ delay: 0.6 }}
             >
-              <p className="text-xs md:text-sm text-muted-foreground mb-3 md:mb-4">Follow us</p>
+              <p className="mb-3 text-xs text-muted-foreground md:mb-4 md:text-sm">Reach us fast</p>
               <div className="flex flex-wrap gap-2 md:gap-3">
-                {["Instagram", "WhatsApp", "Facebook"].map((social) => (
+                {[
+                  { label: "WhatsApp", href: quickWhatsAppHref },
+                  { label: "Email", href: "mailto:info@moniq.co.zw" },
+                  { label: "Call", href: "tel:0711942294" },
+                ].map((social) => (
                   <motion.a
-                    key={social}
-                    href="#"
-                    className="px-3 md:px-4 py-1.5 md:py-2 bg-card border border-border rounded-full text-xs md:text-sm text-foreground hover:border-sky-400/50 transition-colors flex items-center gap-1 group"
+                    key={social.label}
+                    href={social.href}
+                    target={social.href.startsWith("http") ? "_blank" : undefined}
+                    rel={social.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                    className="group flex items-center gap-1 rounded-full border border-border bg-card px-3 py-1.5 text-xs text-foreground transition-colors hover:border-sky-400/50 md:px-4 md:py-2 md:text-sm"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    {social}
-                    <ArrowUpRight size={12} className="md:hidden group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                    <ArrowUpRight size={14} className="hidden md:block group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    {social.label}
+                    <ArrowUpRight
+                      size={12}
+                      className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 md:hidden"
+                    />
+                    <ArrowUpRight
+                      size={14}
+                      className="hidden transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 md:block"
+                    />
                   </motion.a>
                 ))}
               </div>
@@ -122,16 +153,18 @@ export function ContactSection() {
           >
             <form
               onSubmit={handleSubmit}
-              className="bg-card border border-border rounded-2xl md:rounded-3xl p-5 md:p-8"
+              className="rounded-2xl border border-border bg-card p-5 md:rounded-3xl md:p-8"
             >
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 mb-3 md:mb-4">
+              <div className="mb-3 grid grid-cols-1 gap-3 sm:grid-cols-2 md:mb-4 md:gap-4">
                 <div>
                   <label htmlFor="name" className="sr-only">Full Name</label>
                   <input
                     id="name"
                     type="text"
                     placeholder="Full Name"
-                    className="w-full px-3 md:px-4 py-3 md:py-3.5 bg-background border border-border rounded-lg md:rounded-xl text-sm md:text-base text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-sky-400/50 focus:ring-2 focus:ring-sky-500/20 transition-all"
+                    value={formData.name}
+                    onChange={(e) => setFormData((current) => ({ ...current, name: e.target.value }))}
+                    className="w-full rounded-lg border border-border bg-background px-3 py-3 text-sm text-foreground transition-all placeholder:text-muted-foreground focus:border-sky-400/50 focus:outline-none focus:ring-2 focus:ring-sky-500/20 md:rounded-xl md:px-4 md:py-3.5 md:text-base"
                     required
                   />
                 </div>
@@ -141,19 +174,24 @@ export function ContactSection() {
                     id="email"
                     type="email"
                     placeholder="Email"
-                    className="w-full px-3 md:px-4 py-3 md:py-3.5 bg-background border border-border rounded-lg md:rounded-xl text-sm md:text-base text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-sky-400/50 focus:ring-2 focus:ring-sky-500/20 transition-all"
+                    value={formData.email}
+                    onChange={(e) => setFormData((current) => ({ ...current, email: e.target.value }))}
+                    className="w-full rounded-lg border border-border bg-background px-3 py-3 text-sm text-foreground transition-all placeholder:text-muted-foreground focus:border-sky-400/50 focus:outline-none focus:ring-2 focus:ring-sky-500/20 md:rounded-xl md:px-4 md:py-3.5 md:text-base"
                     required
                   />
                 </div>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 mb-3 md:mb-4">
+
+              <div className="mb-3 grid grid-cols-1 gap-3 sm:grid-cols-2 md:mb-4 md:gap-4">
                 <div>
                   <label htmlFor="phone" className="sr-only">Phone</label>
                   <input
                     id="phone"
                     type="tel"
                     placeholder="Phone Number"
-                    className="w-full px-3 md:px-4 py-3 md:py-3.5 bg-background border border-border rounded-lg md:rounded-xl text-sm md:text-base text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-sky-400/50 focus:ring-2 focus:ring-sky-500/20 transition-all"
+                    value={formData.phone}
+                    onChange={(e) => setFormData((current) => ({ ...current, phone: e.target.value }))}
+                    className="w-full rounded-lg border border-border bg-background px-3 py-3 text-sm text-foreground transition-all placeholder:text-muted-foreground focus:border-sky-400/50 focus:outline-none focus:ring-2 focus:ring-sky-500/20 md:rounded-xl md:px-4 md:py-3.5 md:text-base"
                     required
                   />
                 </div>
@@ -161,7 +199,9 @@ export function ContactSection() {
                   <label htmlFor="category" className="sr-only">Service Type</label>
                   <select
                     id="category"
-                    className="w-full px-3 md:px-4 py-3 md:py-3.5 bg-background border border-border rounded-lg md:rounded-xl text-sm md:text-base text-foreground focus:outline-none focus:border-sky-400/50 focus:ring-2 focus:ring-sky-500/20 transition-all appearance-none cursor-pointer"
+                    value={formData.category}
+                    onChange={(e) => setFormData((current) => ({ ...current, category: e.target.value }))}
+                    className="w-full cursor-pointer appearance-none rounded-lg border border-border bg-background px-3 py-3 text-sm text-foreground transition-all focus:border-sky-400/50 focus:outline-none focus:ring-2 focus:ring-sky-500/20 md:rounded-xl md:px-4 md:py-3.5 md:text-base"
                     required
                   >
                     {serviceCategories.map((service) => (
@@ -172,38 +212,32 @@ export function ContactSection() {
                   </select>
                 </div>
               </div>
+
               <div className="mb-4 md:mb-6">
                 <label htmlFor="message" className="sr-only">Message</label>
                 <textarea
                   id="message"
                   rows={4}
-                  placeholder="Tell us about your project or automation needs..."
-                  className="w-full px-3 md:px-4 py-3 md:py-3.5 bg-background border border-border rounded-lg md:rounded-xl text-sm md:text-base text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-sky-400/50 focus:ring-2 focus:ring-sky-500/20 transition-all resize-none"
+                  value={formData.message}
+                  onChange={(e) => setFormData((current) => ({ ...current, message: e.target.value }))}
+                  placeholder="Tell us about your site, camera setup, network, or academic project..."
+                  className="w-full resize-none rounded-lg border border-border bg-background px-3 py-3 text-sm text-foreground transition-all placeholder:text-muted-foreground focus:border-sky-400/50 focus:outline-none focus:ring-2 focus:ring-sky-500/20 md:rounded-xl md:px-4 md:py-3.5 md:text-base"
                 />
               </div>
+
               <motion.button
                 type="submit"
-                disabled={isSubmitting}
-                className="w-full py-3 md:py-4 bg-foreground text-background text-sm md:text-base font-medium rounded-lg md:rounded-xl flex items-center justify-center gap-2 hover:bg-foreground/90 disabled:opacity-70 transition-all"
+                className="flex w-full items-center justify-center gap-2 rounded-lg bg-foreground py-3 text-sm font-medium text-background transition-all hover:bg-foreground/90 md:rounded-xl md:py-4 md:text-base"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                {isSubmitting ? (
-                  <motion.div
-                    className="w-5 h-5 border-2 border-background/30 border-t-background rounded-full"
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                  />
-                ) : (
-                  <>
-                    Request Quote
-                    <Send size={16} className="md:hidden" />
-                    <Send size={18} className="hidden md:block" />
-                  </>
-                )}
+                Request Quote on WhatsApp
+                <MessageCircle size={16} className="md:hidden" />
+                <MessageCircle size={18} className="hidden md:block" />
               </motion.button>
-              <p className="mt-3 md:mt-4 text-center text-xs md:text-sm text-muted-foreground">
-                {"We'll respond with a technical roadmap, turnaround time, or project scope during business hours"}
+
+              <p className="mt-3 text-center text-xs text-muted-foreground md:mt-4 md:text-sm">
+                {"This opens WhatsApp with your enquiry details so the team can respond faster during business hours."}
               </p>
             </form>
           </motion.div>

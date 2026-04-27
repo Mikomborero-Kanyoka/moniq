@@ -5,22 +5,22 @@ import { ArrowUp } from "lucide-react";
 
 const footerLinks = {
   about: [
-    { label: "About Us", href: "#features" },
-    { label: "Our Team", href: "#features" },
-    { label: "Services", href: "#fleet" },
-    { label: "Pricing", href: "#pricing" },
+    { label: "About Us", href: "/#features" },
+    { label: "Our Team", href: "/#features" },
+    { label: "Services", href: "/#fleet" },
+    { label: "Pricing", href: "/#pricing" },
   ],
   contact: [
-    { label: "Contact", href: "#contact" },
-    { label: "Technical Support", href: "#contact" },
-    { label: "Consultation", href: "#contact" },
-    { label: "System Status", href: "#features" },
+    { label: "Contact", href: "/#contact" },
+    { label: "Technical Support", href: "/#contact" },
+    { label: "Consultation", href: "/#contact" },
+    { label: "Project Enquiries", href: "/#contact" },
   ],
   support: [
     { label: "Privacy Policy", href: "#" },
     { label: "Terms of Service", href: "#" },
-    { label: "SLA", href: "#" },
-    { label: "Data Security", href: "#" },
+    { label: "Service Scope", href: "/#pricing" },
+    { label: "Data Security", href: "/#features" },
   ],
 };
 
@@ -33,19 +33,17 @@ export function Footer() {
     <footer className="relative border-t border-border bg-[#050709]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="py-10 md:py-14">
-
-          {/* Mobile: brand block */}
           <div className="mb-10 md:hidden">
-            <a href="#top" className="inline-block overflow-visible">
+            <a href="/#top" className="inline-block overflow-visible">
               <img
                 src="/images/logo.png"
-                alt="Moniq logo"
+                alt="Moniq Technologies logo"
                 className="h-16 origin-left scale-[1.7] object-contain object-left"
               />
             </a>
             <p className="mt-6 max-w-sm text-sm leading-7 text-muted-foreground">
-              Bridging Software, Security, and Scale. Marketing Automation, Digital
-              Infrastructure, and Technical Security.
+              Engineering security, infrastructure, and innovation through technical
+              security systems, dependable digital delivery, and academic development support.
             </p>
             <div className="mt-6 flex items-center gap-3">
               <span className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
@@ -53,7 +51,6 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Mobile: 3-column links */}
           <div className="grid grid-cols-3 gap-4 md:hidden">
             <div>
               <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-muted-foreground">
@@ -114,19 +111,18 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Desktop layout */}
           <div className="hidden md:grid md:grid-cols-[1.6fr_1fr_1fr_1fr] md:gap-12">
             <div>
-              <a href="#top" className="mb-5 inline-block overflow-visible">
+              <a href="/#top" className="mb-5 inline-block overflow-visible">
                 <img
                   src="/images/logo.png"
-                  alt="Moniq logo"
+                  alt="Moniq Technologies logo"
                   className="h-18 w-36 origin-left scale-[1.7] object-contain"
                 />
               </a>
               <p className="max-w-sm text-base leading-9 text-muted-foreground">
-                Bridging Software, Security, and Scale. Marketing Automation, Digital
-                Infrastructure, and Technical Security.
+                Engineering security, infrastructure, and innovation through technical
+                security systems, dependable digital delivery, and academic development support.
               </p>
               <div className="mt-8 flex items-center gap-3">
                 <span className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
@@ -192,12 +188,11 @@ export function Footer() {
               </ul>
             </div>
           </div>
-
         </div>
       </div>
 
       <div className="border-t border-border/70">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-5 md:py-6">
+        <div className="mx-auto max-w-7xl px-4 py-5 sm:px-6 lg:px-8 md:py-6">
           <div className="flex flex-col items-center justify-between gap-3 sm:flex-row md:gap-4">
             <p className="text-center text-xs text-muted-foreground sm:text-left md:text-sm">
               © 2026 Moniq Technologies. All rights reserved.
