@@ -3,26 +3,28 @@ import { ServicePage } from "@/components/service-page";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Web Development Zimbabwe Starting at $50",
+  title: "Enterprise Web & Application Development",
   description:
-    "Moniq Technologies offers web development in Zimbabwe, landing pages starting at $50, professional email setup, and digital infrastructure for local businesses.",
+    "Scalable web applications, high-performance business websites, and managed professional email hosting for corporate identity across Zimbabwe.",
   path: "/web",
-  keywords: ["Web Development Zimbabwe", "Web design starting at $50", "Business websites Harare"],
+  keywords: ["Enterprise Web Development", "Business Applications Zimbabwe", "Google Workspace Hosting"],
 });
 
 export default function WebPage() {
   return (
     <ServicePage
-      eyebrow="Digital Infrastructure"
-      title="Professional web systems for Zimbabwean businesses that need to look credible online."
-      description="From one-page launches to business-ready web experiences, Moniq builds pages that communicate clearly, work on mobile, and support faster enquiry conversion."
+      eyebrow="Pillar 02"
+      title="Enterprise Web & Application Development"
+      description="We engineer scalable web applications, high-performance business websites, and provide managed professional email hosting (Google Workspace/Microsoft 365/Private Server) for corporate identity."
       highlights={[
-        "Landing pages starting at $50",
-        "Business websites tailored for local service providers",
-        "Professional domain email setup",
-        "Clean mobile-first design for WhatsApp-heavy customer journeys",
+        "Scalable custom web applications",
+        "High-performance business platforms",
+        "Managed Google Workspace & Microsoft 365",
+        "Private server email hosting",
       ]}
-      ctaLabel="Request Web Quote"
+      ctaLabel="Deploy Web Solution"
+      image="/asset-images/moniq-premium-web.png"
+      showPricing={true}
     />
   );
 }

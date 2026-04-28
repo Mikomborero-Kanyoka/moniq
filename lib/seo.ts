@@ -4,15 +4,16 @@ export const siteConfig = {
   name: "Moniq Technologies",
   url: "https://moniq.co.zw",
   description:
-    "Moniq Technologies delivers web development, CCTV installation, digital infrastructure, and academic technical support across Harare, Chitungwiza, and Zimbabwe.",
+    "Moniq Technologies is a premier tech agency specializing in AI-enhanced security, custom IoT development, professional web applications, and enterprise networking. We deliver scalable engineering solutions for businesses and organizations across Zimbabwe.",
   ogImage: "/images/logo.png",
   keywords: [
-    "Web Development Zimbabwe",
-    "CCTV Installation Harare",
-    "Student Tech Projects Chitungwiza",
+    "Enterprise Software Zimbabwe",
+    "AI Surveillance Harare",
+    "Industrial IoT Zimbabwe",
+    "Network Infrastructure Zimbabwe",
     "Moniq Technologies",
-    "Web design starting at $50",
-    "Smart CCTV Harare",
+    "GPS Tracking Zimbabwe",
+    "Smart Logistics Zimbabwe",
   ],
 } as const;
 
@@ -68,9 +69,9 @@ export const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   name: "Moniq Technologies",
-  priceRange: "$50 - $1500",
+  priceRange: "$$$",
   telephone: "+263 785 234 975",
   url: "https://moniq.co.zw",
-  areaServed: ["Harare", "Chitungwiza", "Zimbabwe"],
+  areaServed: ["Zimbabwe"],
   image: "https://moniq.co.zw/images/logo.png",
 };

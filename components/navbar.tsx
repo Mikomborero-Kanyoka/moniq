@@ -7,9 +7,7 @@ import { useQuoteWhatsApp } from "@/hooks/use-quote-whatsapp";
 
 const navItems = [
   { label: "Home", href: "/#top" },
-  { label: "Services", href: "/#fleet" },
-  { label: "Why Us", href: "/#features" },
-  { label: "Pricing", href: "/#pricing" },
+  { label: "Pillars", href: "/#services" },
   { label: "Contact", href: "/#contact" },
 ];
 

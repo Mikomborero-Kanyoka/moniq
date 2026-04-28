@@ -8,15 +8,15 @@ import { useQuoteWhatsApp } from "@/hooks/use-quote-whatsapp";
 
 const serviceCategories = [
   { value: "", label: "Select service" },
-  { value: "Technical Security", label: "Technical Security" },
-  { value: "Digital Infrastructure", label: "Digital Infrastructure" },
-  { value: "Academic Development", label: "Academic Development" },
+  { value: "Security & AI Surveillance", label: "Security & AI Surveillance" },
+  { value: "Web & App Development", label: "Web & App Development" },
+  { value: "Industrial IoT", label: "Industrial IoT" },
+  { value: "Infrastructure & Networking", label: "Infrastructure & Networking" },
+  { value: "Logistics & Asset Tracking", label: "Logistics & Asset Tracking" },
   { value: "Other Inquiry", label: "Other Inquiry" },
 ];
 
 export function ContactSection() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(containerRef, { once: true, margin: "-100px" });
   const { href: quickWhatsAppHref, number: quoteWhatsAppNumber } = useQuoteWhatsApp();
   const [formData, setFormData] = useState({
     name: "",
@@ -46,57 +46,34 @@ export function ContactSection() {
   };
 
   return (
-    <section ref={containerRef} id="contact" className="relative overflow-hidden bg-background py-24 md:py-32">
+    <section id="contact" className="relative overflow-hidden bg-background py-24 md:py-32">
       <div className="absolute top-0 left-0 h-px w-full bg-gradient-to-r from-transparent via-border to-transparent" />
-      <motion.div
-        className="absolute -top-40 -right-40 h-80 w-80 rounded-full bg-sky-500/5 blur-3xl"
-        animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
-        transition={{ duration: 8, repeat: Infinity }}
-      />
-
+      
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-2 md:gap-16">
           <div>
-            <motion.span
-              className="mb-3 inline-block text-xs uppercase tracking-[0.2em] text-sky-400 sm:text-sm md:mb-4"
-              initial={{ opacity: 0, x: -20 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.6 }}
-            >
+            <span className="mb-3 inline-block text-xs uppercase tracking-[0.2em] text-sky-400 sm:text-sm md:mb-4">
               Get In Touch
-            </motion.span>
-            <motion.h2
-              className="mb-4 text-3xl font-serif font-bold text-foreground sm:text-4xl md:mb-6 md:text-5xl"
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
+            </span>
+            <h2 className="mb-4 text-2xl font-serif font-bold text-foreground sm:text-3xl md:mb-6 md:text-4xl">
               Let&apos;s Design
               <br />
               <span className="text-sky-400">or Secure Your Next Build</span>
-            </motion.h2>
-            <motion.p
-              className="mb-6 text-base text-muted-foreground md:mb-10 md:text-lg"
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              Tell us about your security, infrastructure, or academic support needs and
+            </h2>
+            <p className="mb-6 text-sm text-muted-foreground md:mb-10 md:text-base">
+              Tell us about your security, infrastructure, or enterprise software needs and
               we&apos;ll move the conversation straight into WhatsApp with the right context.
-            </motion.p>
+            </p>
 
             <div className="space-y-4 md:space-y-6">
               {[
                 { icon: MapPin, label: "Location", value: "Harare, Zimbabwe" },
                 { icon: Phone, label: "Phone", value: "0711 942 294" },
                 { icon: Mail, label: "Email", value: "info@moniq.co.zw" },
-              ].map((item, index) => (
-                <motion.div
+              ].map((item) => (
+                <div
                   key={item.label}
                   className="flex items-start gap-3 md:gap-4"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
                 >
                   <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg border border-border bg-card md:h-12 md:w-12 md:rounded-xl">
                     <item.icon size={18} className="text-sky-400" />
@@ -105,16 +82,11 @@ export function ContactSection() {
                     <p className="text-xs text-muted-foreground md:text-sm">{item.label}</p>
                     <p className="text-sm font-medium text-foreground md:text-base">{item.value}</p>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
 
-            <motion.div
-              className="mt-6 border-t border-border pt-6 md:mt-10 md:pt-10"
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : {}}
-              transition={{ delay: 0.6 }}
-            >
+            <div className="mt-6 border-t border-border pt-6 md:mt-10 md:pt-10">
               <p className="mb-3 text-xs text-muted-foreground md:mb-4 md:text-sm">Reach us fast</p>
               <div className="flex flex-wrap gap-2 md:gap-3">
                 {[
@@ -143,14 +115,10 @@ export function ContactSection() {
                   </motion.a>
                 ))}
               </div>
-            </motion.div>
+            </div>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
+          <div>
             <form
               onSubmit={handleSubmit}
               className="rounded-2xl border border-border bg-card p-5 md:rounded-3xl md:p-8"
@@ -215,14 +183,14 @@ export function ContactSection() {
 
               <div className="mb-4 md:mb-6">
                 <label htmlFor="message" className="sr-only">Message</label>
-                <textarea
-                  id="message"
-                  rows={4}
-                  value={formData.message}
-                  onChange={(e) => setFormData((current) => ({ ...current, message: e.target.value }))}
-                  placeholder="Tell us about your site, camera setup, network, or academic project..."
-                  className="w-full resize-none rounded-lg border border-border bg-background px-3 py-3 text-sm text-foreground transition-all placeholder:text-muted-foreground focus:border-sky-400/50 focus:outline-none focus:ring-2 focus:ring-sky-500/20 md:rounded-xl md:px-4 md:py-3.5 md:text-base"
-                />
+                  <textarea
+                    id="message"
+                    rows={4}
+                    value={formData.message}
+                    onChange={(e) => setFormData((current) => ({ ...current, message: e.target.value }))}
+                    placeholder="Tell us about your site, camera setup, network, or enterprise software project..."
+                    className="w-full resize-none rounded-lg border border-border bg-background px-3 py-3 text-sm text-foreground transition-all placeholder:text-muted-foreground focus:border-sky-400/50 focus:outline-none focus:ring-2 focus:ring-sky-500/20 md:rounded-xl md:px-4 md:py-3.5 md:text-base"
+                  />
               </div>
 
               <motion.button
@@ -240,7 +208,7 @@ export function ContactSection() {
                 {"This opens WhatsApp with your enquiry details so the team can respond faster during business hours."}
               </p>
             </form>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

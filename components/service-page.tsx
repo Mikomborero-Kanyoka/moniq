@@ -1,6 +1,7 @@
 import { QuoteLink } from "@/components/quote-link";
 import { Footer } from "@/components/footer";
 import { Navbar } from "@/components/navbar";
+import { PricingSection } from "@/components/pricing-section";
 
 type ServicePageProps = {
   eyebrow: string;
@@ -8,6 +9,8 @@ type ServicePageProps = {
   description: string;
   highlights: string[];
   ctaLabel: string;
+  image: string;
+  showPricing?: boolean;
 };
 
 export function ServicePage({
@@ -16,19 +19,30 @@ export function ServicePage({
   description,
   highlights,
   ctaLabel,
+  image,
+  showPricing = false,
 }: ServicePageProps) {
   return (
     <div className="relative min-h-screen bg-background">
       <Navbar />
-      <main className="pt-28">
+      <main className="pt-20">
+        <div className="relative h-[40vh] w-full overflow-hidden">
+          <img
+            src={image}
+            alt={title}
+            className="h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
+        </div>
+        
         <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
           <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
             <div>
               <p className="text-xs uppercase tracking-[0.28em] text-sky-400">{eyebrow}</p>
-              <h1 className="mt-4 max-w-4xl text-4xl font-serif font-bold tracking-tight text-foreground md:text-6xl">
+              <h1 className="mt-4 max-w-4xl text-2xl font-serif font-bold tracking-tight text-foreground md:text-4xl lg:text-5xl">
                 {title}
               </h1>
-              <p className="mt-6 max-w-3xl text-base leading-8 text-muted-foreground md:text-lg">
+              <p className="mt-6 max-w-3xl text-sm leading-relaxed text-muted-foreground md:text-base">
                 {description}
               </p>
               <div className="mt-8">
@@ -53,6 +67,8 @@ export function ServicePage({
             </aside>
           </div>
         </section>
+
+        {showPricing && <PricingSection />}
       </main>
       <Footer />
     </div>

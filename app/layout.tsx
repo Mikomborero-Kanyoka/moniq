@@ -12,9 +12,8 @@ const plusJakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   ...buildMetadata({
-    title: "Infrastructure, Security, and Academic Development",
-    description:
-      "Moniq Technologies offers web development in Zimbabwe, CCTV installation in Harare, and technical academic support in Chitungwiza and beyond.",
+    title: "Engineering, Security & Enterprise Software Solutions Zimbabwe",
+    description: siteConfig.description,
   }),
   applicationName: siteConfig.name,
   generator: "Next.js",

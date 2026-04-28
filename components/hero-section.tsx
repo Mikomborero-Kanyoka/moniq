@@ -1,83 +1,56 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowDown, MessageCircle } from "lucide-react";
 import { useQuoteWhatsApp } from "@/hooks/use-quote-whatsapp";
 
 export function HeroSection() {
-  const { scrollYProgress } = useScroll();
   const { href: whatsappHref } = useQuoteWhatsApp(
     "Hi, I'd like a quote for Moniq Technologies."
   );
 
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.2]);
-
   return (
     <section
       id="top"
-      className="relative isolate flex min-h-screen items-center justify-center overflow-hidden"
+      className="relative isolate flex min-h-[85vh] items-center justify-center overflow-hidden bg-[#050709]"
     >
-      <motion.div className="absolute inset-0 z-0 pointer-events-none" style={{ scale }}>
+      <div className="absolute inset-0 z-0 pointer-events-none">
         <img
           src="/images/hero.png"
           alt="Moniq Technologies security and infrastructure showcase"
-          className="h-full w-full object-cover"
+          className="h-full w-full object-cover opacity-50"
         />
-        <div className="absolute inset-0 bg-background/35" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
-      </motion.div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#050709] via-[#050709]/20 to-transparent" />
+      </div>
 
-      <motion.div
+      <div
         className="relative z-10 mx-auto max-w-7xl px-5 text-center pt-24 md:px-6 md:pt-28 lg:px-8"
-        style={{ y, opacity }}
       >
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="mb-6 md:mb-8"
-        >
+        <div className="mb-6 md:mb-8">
           <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card/50 px-3 py-1.5 text-xs text-muted-foreground backdrop-blur-sm md:px-4 md:py-2 md:text-sm">
             <span className="h-1.5 w-1.5 rounded-full bg-sky-400 animate-pulse md:h-2 md:w-2" />
-            Infrastructure, Security, and Academic Systems
+            Nationwide Enterprise Technology & Engineering
           </span>
-        </motion.div>
+        </div>
 
-        <motion.h1
-          className="mx-auto mb-5 max-w-5xl text-[clamp(2.4rem,6vw,4.75rem)] font-sans font-extrabold leading-[0.95] tracking-[-0.06em] text-balance md:mb-7"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-        >
-          <span className="block text-foreground">Engineering Security,</span>
-          <span className="block text-foreground/35">Infrastructure, and Innovation.</span>
-        </motion.h1>
+        <h1 className="mx-auto mb-5 max-w-5xl text-[clamp(1.8rem,4vw,3.2rem)] font-sans font-extrabold leading-[1.1] tracking-[-0.04em] text-balance md:mb-7">
+          <span className="block text-foreground">We Engineer Security,</span>
+          <span className="block text-foreground/35">Deploy Infrastructure & Scale Systems.</span>
+        </h1>
 
-        <motion.p
-          className="mx-auto mb-8 max-w-3xl px-2 text-sm text-muted-foreground text-pretty md:mb-12 md:px-0 md:text-base"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-        >
-          High-end CCTV Surveillance, Enterprise Networking, Professional Web Systems,
-          and Technical Academic Support.
-        </motion.p>
+        <p className="mx-auto mb-8 max-w-2xl px-2 text-sm text-muted-foreground text-pretty md:mb-12 md:px-0 md:text-base leading-relaxed">
+          AI-Enhanced Security, Industrial IoT, Enterprise Software Development,
+          and Scalable Digital Infrastructure across Zimbabwe.
+        </p>
 
-        <motion.div
-          className="flex flex-col items-center justify-center gap-3 px-2 sm:flex-row sm:gap-4 md:px-0"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-        >
+        <div className="flex flex-col items-center justify-center gap-3 px-2 sm:flex-row sm:gap-4 md:px-0">
           <motion.a
-            href="#fleet"
+            href="#services"
             className="inline-flex w-full items-center justify-center rounded-full bg-foreground px-6 py-3.5 font-medium text-background transition-all hover:bg-foreground/90 sm:w-auto sm:px-8 sm:py-4"
-            whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(0,0,0,0.3)" }}
+            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            Explore Services
+            Explore Pillars
           </motion.a>
           <motion.a
             href={whatsappHref}
@@ -93,25 +66,19 @@ export function HeroSection() {
             </span>
             Quote on WhatsApp
           </motion.a>
-        </motion.div>
+        </div>
 
-        <motion.div
+        <div
           className="mx-auto mt-12 grid max-w-xl grid-cols-3 gap-4 px-2 md:mt-20 md:gap-8 md:px-0"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1 }}
         >
           {[
-            { value: "$50", label: "Starting rate" },
-            { value: "3", label: "Core pillars" },
-            { value: "Mobile", label: "Quote-first UX" },
+            { value: "Zimbabwe", label: "Nationwide Reach" },
+            { value: "5", label: "Core pillars" },
+            { value: "AI-Driven", label: "Technology" },
           ].map((stat, index) => (
-            <motion.div
+            <div
               key={stat.label}
               className="text-center"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.2 + index * 0.1 }}
             >
               <div className="text-2xl font-serif font-bold text-foreground sm:text-3xl md:text-4xl">
                 {stat.value}
@@ -119,26 +86,19 @@ export function HeroSection() {
               <div className="mt-1 text-xs text-muted-foreground sm:text-sm">
                 {stat.label}
               </div>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
 
-      <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-      >
-        <motion.div
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
+        <div
           className="flex flex-col items-center gap-2 text-muted-foreground"
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
         >
           <span className="text-xs uppercase tracking-widest">Scroll</span>
           <ArrowDown size={16} />
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
 
       <div className="absolute left-8 top-1/2 hidden -translate-y-1/2 flex-col gap-4 lg:flex">
         {[...Array(5)].map((_, i) => (

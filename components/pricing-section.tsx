@@ -7,96 +7,86 @@ import { useQuoteWhatsApp } from "@/hooks/use-quote-whatsapp";
 
 const pricingTiers = [
   {
-    name: "Websites",
-    price: "$50",
+    name: "Digital Presence",
+    price: "$150",
     period: "starting",
-    description: "Professional 1-page landing and branded email setup.",
+    description: "Professional business website and managed email setup.",
     icon: Code2,
     features: [
-      "Business-ready landing page",
-      "Mobile-first layout",
+      "Responsive business website",
       "Professional email onboarding",
+      "SEO & mobile optimization",
     ],
   },
   {
-    name: "Camera Settings/Maintenance",
-    price: "$50",
+    name: "Security Optimization",
+    price: "$200",
     period: "starting",
-    description: "System optimization, setup, and maintenance for installed cameras.",
+    description: "AI-enhanced surveillance setup and maintenance.",
     icon: Camera,
     features: [
-      "Camera and recorder setup",
-      "Fault checks and tuning",
+      "AI camera & recorder setup",
+      "Intrusion alert configuration",
       "Performance optimization",
     ],
     highlighted: true,
   },
   {
-    name: "Basic Sensor Security",
-    price: "$120",
+    name: "Enterprise Networking",
+    price: "$300",
     period: "starting",
-    description: "Smart security and intrusion detection for smaller properties.",
+    description: "High-performance Wi-Fi Mesh and server infrastructure.",
     icon: ShieldCheck,
     features: [
-      "Entry-level sensor package",
-      "Intrusion detection setup",
-      "Basic smart alert configuration",
+      "Fibre & Mesh deployment",
+      "Server setup & security",
+      "Network health monitoring",
     ],
   },
   {
-    name: "Academic Projects",
+    name: "Custom Engineering",
     price: "Custom",
     period: "quote",
-    description: "Quoted according to complexity, scope, and technical depth.",
+    description: "Bespoke IoT, software, and industrial automation solutions.",
     icon: GraduationCap,
     features: [
-      "Project planning support",
-      "System design guidance",
-      "Technical documentation help",
+      "Custom software engineering",
+      "IoT sensor integration",
+      "Data dashboard development",
     ],
   },
 ];
 
 export function PricingSection() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(containerRef, { once: true, margin: "-100px" });
   const { href: whatsappHref } = useQuoteWhatsApp(
     "Hi, I'd like a quote for Moniq Technologies."
   );
 
   return (
-    <section ref={containerRef} id="pricing" className="relative overflow-hidden bg-card py-24 md:py-32">
+    <section id="pricing" className="relative overflow-hidden bg-card py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <motion.div
-          className="mb-12 text-center md:mb-20"
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-        >
+        <div className="mb-12 text-center md:mb-20">
           <span className="mb-3 inline-block text-xs uppercase tracking-[0.2em] text-sky-400 sm:text-sm md:mb-4">
             Transparent Pricing
           </span>
-          <h2 className="mb-4 text-3xl font-serif font-bold text-foreground sm:text-4xl md:mb-6 md:text-5xl">
-            Transparent Starting Rates
+          <h2 className="mb-4 text-2xl sm:text-3xl md:text-5xl font-serif font-bold text-foreground">
+            Starting Rates & Quoted Solutions
           </h2>
           <p className="mx-auto max-w-2xl text-sm text-muted-foreground md:text-base">
-            Straightforward entry pricing for common requests, with tailored quotes for
-            bigger deployments and more advanced academic work.
+            Straightforward entry pricing for common infrastructure and security requests, with tailored quotes for
+            full-scale enterprise deployments across Zimbabwe.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8 xl:grid-cols-4">
-          {pricingTiers.map((tier, index) => (
-            <motion.div
+          {pricingTiers.map((tier) => (
+            <div
               key={tier.name}
               className={`relative rounded-3xl border p-8 ${
                 tier.highlighted
                   ? "border-sky-400 bg-background shadow-2xl shadow-sky-500/10"
                   : "border-border bg-background/50"
               }`}
-              initial={{ opacity: 0, y: 50 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
             >
               {tier.highlighted && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-sky-400 px-4 py-1 text-xs font-bold uppercase tracking-wider text-background">
@@ -139,7 +129,7 @@ export function PricingSection() {
                 Get Quote
                 <ArrowRight size={16} />
               </motion.a>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

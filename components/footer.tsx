@@ -5,22 +5,19 @@ import { ArrowUp } from "lucide-react";
 
 const footerLinks = {
   about: [
-    { label: "About Us", href: "/#features" },
-    { label: "Our Team", href: "/#features" },
-    { label: "Services", href: "/#fleet" },
-    { label: "Pricing", href: "/#pricing" },
+    { label: "Technology Pillars", href: "/#services" },
+    { label: "Regional Operations", href: "/#services" },
+    { label: "Our Team", href: "/#contact" },
   ],
   contact: [
-    { label: "Contact", href: "/#contact" },
-    { label: "Technical Support", href: "/#contact" },
+    { label: "Enterprise Enquiries", href: "/#contact" },
     { label: "Consultation", href: "/#contact" },
-    { label: "Project Enquiries", href: "/#contact" },
+    { label: "Technical Support", href: "/#contact" },
   ],
   support: [
     { label: "Privacy Policy", href: "#" },
     { label: "Terms of Service", href: "#" },
-    { label: "Service Scope", href: "/#pricing" },
-    { label: "Data Security", href: "/#features" },
+    { label: "Data Security", href: "/#services" },
   ],
 };
 
@@ -42,8 +39,8 @@ export function Footer() {
               />
             </a>
             <p className="mt-6 max-w-sm text-sm leading-7 text-muted-foreground">
-              Engineering security, infrastructure, and innovation through technical
-              security systems, dependable digital delivery, and academic development support.
+              Engineering AI-enhanced security, industrial IoT, and enterprise infrastructure 
+              solutions for businesses across Zimbabwe.
             </p>
             <div className="mt-6 flex items-center gap-3">
               <span className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
@@ -121,8 +118,8 @@ export function Footer() {
                 />
               </a>
               <p className="max-w-sm text-base leading-9 text-muted-foreground">
-                Engineering security, infrastructure, and innovation through technical
-                security systems, dependable digital delivery, and academic development support.
+                Engineering AI-enhanced security, industrial IoT, and enterprise infrastructure 
+                solutions for businesses across Zimbabwe.
               </p>
               <div className="mt-8 flex items-center gap-3">
                 <span className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
